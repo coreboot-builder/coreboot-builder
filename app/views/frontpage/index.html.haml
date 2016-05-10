@@ -1,0 +1,4 @@
+= form_tag start_build_path do
+	= select_tag :oem_name, options_for_select([['foo', 1], ['blah', 2]], 1)
+	= text_field_tag :email_address
+	= submit_tag "Build"
