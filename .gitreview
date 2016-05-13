@@ -1,0 +1,5 @@
+[gerrit]
+host=review.coreboot.org
+port=29418
+project=rom-o-matic.git
+defaultbranch=master
