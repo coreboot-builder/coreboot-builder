@@ -1,4 +1,4 @@
-class FrontpageController < ApplicationController
+class FrontendController < ApplicationController
 	def index
 	end
 
