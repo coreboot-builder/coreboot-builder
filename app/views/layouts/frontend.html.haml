@@ -1,0 +1,12 @@
+!!!
+%html
+  %head
+    %title Coreboot Builder
+    %link{:href => "https://fonts.googleapis.com/css?family=Roboto:400,500,700", :rel => "stylesheet"}
+    = stylesheet_link_tag 'frontend', media: 'all'
+    %script{:crossorigin => "anonymous", :integrity => "sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=", :src => "https://code.jquery.com/jquery-3.1.0.min.js"}
+    %link{:href => "http://csshake.surge.sh/csshake.min.css", :rel => "stylesheet", :type => "text/css"}
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"}
+    = javascript_include_tag 'frontend'
+  %body
+    = yield
