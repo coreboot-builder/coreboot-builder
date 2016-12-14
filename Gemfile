@@ -3,8 +3,7 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.0'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'pg', '~> 0.18'
 # Use SCSS for stylesheets
 gem 'sassc-rails', '~> 1.2', '>= 1.2.1'
 gem 'compass-rails', '3.0.2'
@@ -26,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'jenkins_api_client', '1.4.2', require: false
 
 gem 'haml-rails', '0.9.0'
+gem 'carrierwave', '~> 0.11.2'
 
 
 # Use ActiveModel has_secure_password
@@ -38,8 +38,12 @@ gem 'puma', '3.4.0'
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  gem 'binding_of_caller'
+  gem 'pry'
+  gem 'pry-byebug'
+  gem 'better_errors'
+  gem 'rspec-rails'
+  gem 'shoulda-matchers', require: false
 end
 
 group :development do
