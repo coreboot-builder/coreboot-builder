@@ -12,8 +12,6 @@ gem 'uglifier', '>= 1.3.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'sprockets-es6', '~> 0.9.0'
 
-gem 'materialize-sass', '~> 0.97.6'
-
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
