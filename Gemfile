@@ -27,6 +27,8 @@ gem 'jenkins_api_client', '1.4.2', require: false
 gem 'haml-rails', '0.9.0'
 gem 'carrierwave', '~> 0.11.2'
 
+gem 'dotenv', '~> 2.1', '>= 2.1.1'
+
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
