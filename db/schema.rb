@@ -10,14 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160510222044) do
+ActiveRecord::Schema.define(version: 20161214193530) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
+  create_table "builds", force: :cascade do |t|
+    t.string  "uuid"
+    t.integer "state",      default: 0
+    t.string  "blob_file"
+    t.string  "email"
+    t.string  "gpg"
+    t.integer "device_id"
+    t.boolean "downloaded"
+    t.index ["device_id"], name: "index_builds_on_device_id", using: :btree
+  end
+
+  create_table "choices", force: :cascade do |t|
+    t.integer "option_id"
+    t.integer "build_id"
+    t.string  "value"
+    t.index ["build_id"], name: "index_choices_on_build_id", using: :btree
+    t.index ["option_id"], name: "index_choices_on_option_id", using: :btree
+  end
+
+  create_table "devices", force: :cascade do |t|
+    t.string  "name"
+    t.string  "config_file"
+    t.boolean "needs_rom_dump"
+    t.integer "vendor_id"
+    t.index ["vendor_id"], name: "index_devices_on_vendor_id", using: :btree
+  end
+
+  create_table "devices_options", id: false, force: :cascade do |t|
+    t.integer "device_id"
+    t.integer "option_id"
+    t.index ["device_id"], name: "index_devices_options_on_device_id", using: :btree
+    t.index ["option_id"], name: "index_devices_options_on_option_id", using: :btree
+  end
 
   create_table "jobs", force: :cascade do |t|
     t.string   "uuid",       null: false
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_jobs_on_user_id"
+    t.index ["user_id"], name: "index_jobs_on_user_id", using: :btree
+  end
+
+  create_table "options", force: :cascade do |t|
+    t.string "label"
   end
 
   create_table "users", force: :cascade do |t|
@@ -25,6 +66,10 @@ ActiveRecord::Schema.define(version: 20160510222044) do
     t.string   "gpg",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "vendors", force: :cascade do |t|
+    t.string "name"
   end
 
 end
