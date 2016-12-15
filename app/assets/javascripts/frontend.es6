@@ -1,26 +1,30 @@
 //= require ./widgets/presenter
-//= require ./widgets/autocomplete
 
 $(function() {
   new Presenter($('[data-presenter]'), 500);
 
-  // autocompletion for the device vendor
-  new AutoComplete($('#device-vendor'), {
-    'Lenovo': null,
-    'Intel': null,
-    'Dell': null,
-    'HP': null,
-    'ACER': null,
-    'ASUS': null,
-  });
+  const model_input = $( "#device-model" );
+  const vendor_endpoint = 'api/v1/vendors.json';
+  const device_endpoint = 'api/v1/devices.json';
 
-  // autocompletion for the device model
-  new AutoComplete($('#device-model'), {
-    'Lenovo': null,
-    'Intel': null,
-    'Dell': null,
-    'HP': null,
-    'ACER': null,
-    'ASUS': null,
+  const select_callback = function( event, ui ) {
+    $.ajax({
+      url: device_endpoint,
+      data: { vendor_id: ui.item.id }
+    }).done(function(data) {
+      model_input.autocomplete({
+        source: data
+      }).prop("disabled", false).prop('value', null);
+    }).error(function(data) {
+      model_input.prop("disabled", true);
+    });
+  };
+
+  // autocompletion for vendors
+  $('#device-vendor').autocomplete({
+    source: vendor_endpoint,
+    minLength: 2,
+    select: select_callback
   });
+ 
 });
