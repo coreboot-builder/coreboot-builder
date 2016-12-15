@@ -3,9 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '5.0.0'
 gem 'pg', '~> 0.18'
-# Use SCSS for stylesheets
-gem 'sassc-rails', '~> 1.2', '>= 1.2.1'
-gem 'compass-rails', '3.0.2'
+# Use SASS for stylesheets
+gem 'sassc', '~> 1.10', '>= 1.10.1'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
