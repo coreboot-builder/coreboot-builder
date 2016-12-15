@@ -1,5 +1,7 @@
 class AutoComplete {
   constructor(element, data) {
-    element.autocomplete({data});
+    $(element).autocomplete({
+      source: data
+    });
   }
 }
