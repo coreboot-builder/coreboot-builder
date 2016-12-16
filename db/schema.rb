@@ -10,28 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161214193530) do
+ActiveRecord::Schema.define(version: 20161216163823) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "pgcrypto"
 
   create_table "builds", force: :cascade do |t|
-    t.string  "uuid"
     t.integer "state",      default: 0
     t.string  "blob_file"
     t.string  "email"
     t.string  "gpg"
     t.integer "device_id"
     t.boolean "downloaded"
+    t.json    "config"
+    t.uuid    "uuid",                   null: false
     t.index ["device_id"], name: "index_builds_on_device_id", using: :btree
-  end
-
-  create_table "choices", force: :cascade do |t|
-    t.integer "option_id"
-    t.integer "build_id"
-    t.string  "value"
-    t.index ["build_id"], name: "index_choices_on_build_id", using: :btree
-    t.index ["option_id"], name: "index_choices_on_option_id", using: :btree
+    t.index ["uuid"], name: "index_builds_on_uuid", unique: true, using: :btree
   end
 
   create_table "devices", force: :cascade do |t|

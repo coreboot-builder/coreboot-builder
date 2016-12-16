@@ -5,6 +5,4 @@ RSpec.describe Build, type: :model do
   it { should validate_presence_of(:state) }
 
   it { should belong_to :device }
-
-  it { should have_many :choices }
 end
