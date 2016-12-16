@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216135327) do
+ActiveRecord::Schema.define(version: 20161216160320) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20161216135327) do
     t.string  "gpg"
     t.integer "device_id"
     t.boolean "downloaded"
+    t.json    "config"
     t.index ["device_id"], name: "index_builds_on_device_id", using: :btree
   end
 
