@@ -4,7 +4,7 @@ source 'https://rubygems.org'
 gem 'rails', '5.0.0'
 gem 'pg', '~> 0.18'
 # Use SASS for stylesheets
-gem 'sassc', '~> 1.10', '>= 1.10.1'
+gem 'sassc', '~> 1.11'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes

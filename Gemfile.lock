@@ -177,7 +177,7 @@ GEM
     ruby_parser (3.8.3)
       sexp_processor (~> 4.1)
     sass (3.4.22)
-    sassc (1.10.1)
+    sassc (1.11.0)
       bundler
       ffi (~> 1.9.6)
       sass (>= 3.3.0)
@@ -239,7 +239,7 @@ DEPENDENCIES
   puma (= 3.4.0)
   rails (= 5.0.0)
   rspec-rails
-  sassc (~> 1.10, >= 1.10.1)
+  sassc (~> 1.11)
   sdoc (~> 0.4.0)
   shoulda-matchers
   spring
