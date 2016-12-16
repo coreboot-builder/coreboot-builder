@@ -13,7 +13,7 @@ staging:
 
 test:
   <<: *default
-  database: AfricaReHomepage_test
+  database: Coreboot_Builder_test
 
 production:
   <<: *default
