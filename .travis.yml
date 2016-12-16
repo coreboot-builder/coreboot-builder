@@ -1,6 +1,6 @@
 language: ruby
 before_install:
-  - make dev-env
+  - bundle exec make dev-env
 before_script:
   - psql -c 'create database Coreboot_Builder_test;' -U postgres
 services:
