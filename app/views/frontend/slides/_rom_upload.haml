@@ -1,0 +1,21 @@
+= render 'animated_slide' do
+  .row
+    .col.l12.file-field.input-field
+      .btn.teal.lighten-3.black-text
+        %span File
+        %input{:type => 'file'}
+      .file-path-wrapper
+        %input.file-path.validate{type: 'text', placeholder: 'Upload the ROM dump for the chosen device'}
+
+  .disclaimerBox
+    %p DISCLAIMER
+    %p Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+  .row
+    .col.l12
+      = render 'back_button' do
+        = image_tag 'back-arrow.svg', class: 'back-arrow'
+        back
+
+      = render 'next_button' do
+        next
