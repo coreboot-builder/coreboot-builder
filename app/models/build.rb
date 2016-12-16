@@ -3,7 +3,6 @@ class Build < ActiveRecord::Base
   validates :state, presence: true
 
   belongs_to :device
-  has_many :choices
 
   mount_uploader :blob_file, BlobFileUploader
 
