@@ -1,15 +1,16 @@
 = render 'animated_slide' do
   .row
-    .col.l12.input-field
+    .col.s12.input-field
       %input#device-vendor{:type => "text"}
       %label{:for => "device-vendor"} Choose the vendor of your device
-  .row.device-row
-    .col.l12.input-field
+
+  .row
+    .col.s12.input-field
       %input#device-model{:type => "text", disabled: true}
       %label{:for => "device-model"} Choose the model of your device
 
   .row
-    .col.l12
+    .col.s12
       = render 'back_button' do
         = image_tag 'back-arrow.svg', class: 'back-arrow'
         back
