@@ -28,9 +28,13 @@ end
 
 
 google = Vendor.create(name: 'google')
-lenovo_devices = [
+google_devices = [
   'Chell',
   'Nyan Big',
   'Sammes',
   'Smaug'
 ]
+
+google_devices.each do |device|
+  Device.create(vendor: google, needs_rom_dump: true, name: device, config_file: 'random.name')
+end
