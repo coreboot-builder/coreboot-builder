@@ -13,8 +13,8 @@ gem 'uglifier', '>= 1.3.0'
 gem 'sprockets-es6', '~> 0.9.0'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
-gem 'jquery-ui-rails'
+gem 'jquery-rails', '4.2.1'
+gem 'jquery-ui-rails', '6.0.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
