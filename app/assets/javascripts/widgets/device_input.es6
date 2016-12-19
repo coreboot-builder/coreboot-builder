@@ -1,8 +1,9 @@
 class DeviceInput {
   constructor(vendor_input, model_input, vendor_endpoint, device_endpoint) {
     const disable_model_input = function() {
-      model_input.prop("disabled", true).val('');
-      model_input.closest('label').removeClass('active');
+      $(model_input).siblings('label').removeClass('active');
+      $(model_input).prop("disabled", true).val('');
+      
     };
 
     const select_callback = function( event, ui ) {

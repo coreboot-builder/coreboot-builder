@@ -6,12 +6,8 @@
     = stylesheet_link_tag 'frontend', media: 'all'
     %link{:href => "http://csshake.surge.sh/csshake.min.css", :rel => "stylesheet", :type => "text/css"}
     %link{:href => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css", :rel => "stylesheet"}
-    %link{:href => "https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css", :rel => "stylesheet"}
-
-    %script{:src => "https://code.jquery.com/jquery-2.1.4.min.js"}
-    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"}
-    %script{:src => "http://code.jquery.com/ui/1.12.0/jquery-ui.js", :integrity => "sha256-0YPKAwZP7Mp3ALMRVB2i8GXeEndvCq3eSl/WsAl1Ryk=", :crossorigin => "anonymous"}
-
+    
     = javascript_include_tag 'frontend'
+    %script{:src => "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"}
   %body
     = yield

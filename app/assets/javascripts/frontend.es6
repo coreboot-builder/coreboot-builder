@@ -1,3 +1,5 @@
+//= require jquery2
+//= require jquery-ui/autocomplete
 //= require ./widgets/presenter
 //= require ./widgets/device_input
 
