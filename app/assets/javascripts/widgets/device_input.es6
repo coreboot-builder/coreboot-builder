@@ -1,5 +1,10 @@
 class DeviceInput {
   constructor(vendor_input, model_input, vendor_endpoint, device_endpoint) {
+    const disable_model_input = function() {
+      model_input.prop("disabled", true).val('');
+      model_input.closest('label').removeClass('active');
+    };
+
     const select_callback = function( event, ui ) {
       $.ajax({
         url: device_endpoint,
@@ -9,7 +14,7 @@ class DeviceInput {
           source: data
         }).prop("disabled", false).prop('value', null);
       }).error(function(data) {
-        model_input.prop("disabled", true);
+        disable_model_input();
       });
     };
 
@@ -18,6 +23,10 @@ class DeviceInput {
       source: vendor_endpoint,
       minLength: 2,
       select: select_callback
+    }).on("autocompletechange", function( event, ui ) {
+      if (ui.item == null) {
+        disable_model_input();
+      }
     });
   }
 }
