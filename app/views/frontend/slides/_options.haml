@@ -1,0 +1,46 @@
+= render 'animated_slide' do
+  .row
+    %ul.collection.with-header
+      %li.collection-header.grey.darken-2
+        %h4 Additional Options
+      %li.collection-item.grey.darken-2
+        Option 1
+        .switch.right-align
+          %label
+            Off
+            %input{:type => "checkbox"}
+            %span.lever
+            On
+      %li.collection-item.grey.darken-2
+        Option 1
+        .switch.right-align
+          %label
+            Off
+            %input{:type => "checkbox"}
+            %span.lever
+            On
+      %li.collection-item.grey.darken-2
+        Option 1
+        .switch.right-align
+          %label
+            Off
+            %input{:type => "checkbox"}
+            %span.lever
+            On
+      %li.collection-item.grey.darken-2
+        Option 1
+        .switch.right-align
+          %label
+            Off
+            %input{:type => "checkbox"}
+            %span.lever
+            On
+
+  .row
+    .col.s12
+      = render 'back_button' do
+        = image_tag 'back-arrow.svg', class: 'back-arrow'
+        back
+
+      = render 'next_button' do
+        next

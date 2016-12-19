@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       get "/call/:uuid" => "jenkins#call"
+
+      resources :vendors, only: [:index]
+      resources :devices, only: [:index]
     end
   end
 end

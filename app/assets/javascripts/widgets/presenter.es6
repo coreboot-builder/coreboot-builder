@@ -1,4 +1,4 @@
-//= require ./sliding-widget
+//= require ./sliding_widget
 
 class Presenter {
   constructor(element, speed = 300) {

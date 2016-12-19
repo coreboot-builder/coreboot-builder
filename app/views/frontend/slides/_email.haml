@@ -1,0 +1,20 @@
+= render 'animated_slide' do
+  .row
+    .col.s12.input-field
+      %input#user-email{type: 'text'}
+      %label{for: 'user-email'} Type in your email address
+
+  .row
+    .col.s12.input-field
+      %textarea#gpg-key.materialize-textarea
+      %label{for: 'gpg-key'} Insert your GPG key here
+
+
+  .row
+    .col.s12
+      = render 'back_button' do
+        = image_tag 'back-arrow.svg', class: 'back-arrow'
+        back
+
+      = render 'build_button' do
+        build
