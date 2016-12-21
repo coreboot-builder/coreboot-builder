@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221092447) do
+ActiveRecord::Schema.define(version: 20161221112323) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,10 +46,17 @@ ActiveRecord::Schema.define(version: 20161221092447) do
     t.index ["user_id"], name: "index_jobs_on_user_id", using: :btree
   end
 
+  create_table "option_values", force: :cascade do |t|
+    t.integer "option_id"
+    t.string  "value"
+    t.string  "enum_option"
+    t.index ["option_id"], name: "index_option_values_on_option_id", using: :btree
+  end
+
   create_table "options", force: :cascade do |t|
     t.string  "label"
     t.integer "device_id"
-    t.string  "type"
+    t.string  "data_type"
     t.string  "default"
     t.string  "possible_values"
     t.index ["device_id"], name: "index_options_on_device_id", using: :btree

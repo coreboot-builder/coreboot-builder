@@ -1,7 +1,8 @@
 {
-    "payload":[ {"seabios":"CONFIG_PAYLOAD_SEABIOS=y"},
-                {"grub2":"CONFIG_PAYLOAD_GRUB2=y"} 
-    ],
+    "payload": {
+      "seabios": "CONFIG_PAYLOAD_SEABIOS=y",
+      "grub2": "CONFIG_PAYLOAD_GRUB2=y"
+    },
     "tpm": [ "CONFIG_LPC_TPM=y","CONFIG_I2C_TPM=y" ],
     "lock-me": "CONFIG_LOCK_MANAGEMENT_ENGINE=y",
     "lock-flash": "CONFIG_LOCK_SPI_ON_RESUME_NO_ACCESS"

@@ -8,11 +8,11 @@ class ConfigReader
         unless vendor = Vendor.find_or_create_by(name: json_data.fetch('vendor'))
           raise "Could not find or create vendor" unless vendor
         end
-        
+
         unless device = Device.find_or_create_by(codename: json_data['codename'])
           raise "Could not find or create device" unless device
         end
-        
+
         unless update_device(device, vendor, json_data)
           raise "Could not update device"
         end
@@ -23,11 +23,11 @@ class ConfigReader
           end
 
           if option_value.kind_of?(Array)
-            unless option.update(type: :enum, default: nil, possible_values: option_value)
+            unless option.update(data_type: :enum, default: nil, possible_values: option_value)
               raise "Could not update option"
             end
           else
-            unless option.update(type: :bool, default: option_value, possible_values: nil)
+            unless option.update(data_type: :bool, default: option_value, possible_values: nil)
               raise "Could not update option"
             end
           end
