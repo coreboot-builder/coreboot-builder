@@ -46,6 +46,7 @@ group :development, :test do
   gem 'better_errors'
   gem 'rspec-rails'
   gem 'shoulda-matchers', require: false
+  gem 'letter_opener_web', '~> 1.2.0'
 end
 
 group :development do
