@@ -23,11 +23,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'jenkins_api_client', '1.4.2', require: false
 
 gem 'haml-rails', '0.9.0'
+
 gem 'carrierwave', '~> 0.11.2'
+gem 'carrierwave-ftp', '~> 0.2.8', require: 'carrierwave/storage/sftp'
 
 gem 'dotenv-rails'
 
-gem 'carrierwave-webdav', '~> 0.4.3', require: 'carrierwave/webdav'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

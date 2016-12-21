@@ -57,9 +57,9 @@ GEM
       json (>= 1.7)
       mime-types (>= 1.16)
       mimemagic (>= 0.3.0)
-    carrierwave-webdav (0.4.3)
-      carrierwave
-      httparty
+    carrierwave-ftp (0.2.8)
+      carrierwave (>= 0.6.2)
+      net-sftp (~> 2.1.2)
     coderay (1.1.1)
     concurrent-ruby (1.0.2)
     debug_inspector (0.0.2)
@@ -86,8 +86,6 @@ GEM
       haml (~> 4.0.0)
       nokogiri (~> 1.6.0)
       ruby_parser (~> 3.5)
-    httparty (0.14.0)
-      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     jbuilder (2.6.1)
       activesupport (>= 3.0.0, < 5.1)
@@ -118,7 +116,9 @@ GEM
     minitest (5.10.1)
     mixlib-shellout (2.2.7)
     multi_json (1.12.1)
-    multi_xml (0.6.0)
+    net-sftp (2.1.2)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.2.0)
     nio4r (1.2.1)
     nokogiri (1.6.8.1)
       mini_portile2 (~> 2.1.0)
@@ -236,7 +236,7 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   carrierwave (~> 0.11.2)
-  carrierwave-webdav (~> 0.4.3)
+  carrierwave-ftp (~> 0.2.8)
   dotenv-rails
   haml-rails (= 0.9.0)
   jbuilder (~> 2.0)

@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 class BlobFileUploader < CarrierWave::Uploader::Base
-  storage :webdav
+  storage :sftp
 
   def store_dir
-    "#{ENV['WEBDAV_BASE_DIR']}/#{model.uuid}"
+    "#{ENV['SFTP_BASE_DIR']}/#{model.uuid}"
   end
 end
