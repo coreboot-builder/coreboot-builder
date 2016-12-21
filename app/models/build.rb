@@ -8,20 +8,22 @@ class Build < ActiveRecord::Base
   mount_uploader :blob_file, BlobFileUploader
 
   enum state: {
-         unconfigured: 0,
-         configured: 10,
-         pending: 20,
-         succeeded: 30,
-         failed: 40
-       }
+    unconfigured: 0,
+    configured: 10,
+    pending: 20,
+    succeeded: 30,
+    failed: 40
+  }
 
-   def create_jenkins_config
-     json_conf = {
-       uuid: uuid,
-       codename: device.codename,
-       commit: device.commit,
-       options: configurations.map(&:value)
-     }
-     update(config: json_conf)
-   end
+  def create_jenkins_config
+    json_conf = {
+      uuid: uuid,
+      codename: device.codename,
+      commit: device.commit,
+      gpg: gpg,
+      options: configurations.map(&:value)
+    }
+
+    update(config: json_conf)
+  end
 end

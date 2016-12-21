@@ -11,6 +11,8 @@ class JenkinsAPIService
 
       job = JenkinsApi::Client::Job.new(client)
 
+      json_config['options'] = json_config['options'].join("\n")
+
       job.build(ENV['JENKINS_BUILD_JOB_NAME'], json_config)
     end
   end
