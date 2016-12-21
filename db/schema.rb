@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221112323) do
+ActiveRecord::Schema.define(version: 20161221184901) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,9 +24,17 @@ ActiveRecord::Schema.define(version: 20161221112323) do
     t.integer "device_id"
     t.boolean "downloaded"
     t.json    "config"
-    t.uuid    "uuid",                   null: false
+    t.string  "uuid",                   null: false
     t.index ["device_id"], name: "index_builds_on_device_id", using: :btree
     t.index ["uuid"], name: "index_builds_on_uuid", unique: true, using: :btree
+  end
+
+  create_table "configurations", force: :cascade do |t|
+    t.integer "build_id"
+    t.integer "option_id"
+    t.string  "value"
+    t.index ["build_id"], name: "index_configurations_on_build_id", using: :btree
+    t.index ["option_id"], name: "index_configurations_on_option_id", using: :btree
   end
 
   create_table "devices", force: :cascade do |t|
