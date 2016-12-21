@@ -1,7 +1,7 @@
 {
     "vendor": "Lenovo",
     "device": "Thinkpad T520",
-    "codename": "lenovo/thinkpad_t520",
+    "codename": "LENOVO_T520",
     "commit": "f8bd1dd43cadc01cd93b6f14373d3fd3903d5817",
     "blobs" : "yes",
     "options": {
