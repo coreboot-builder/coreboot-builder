@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161216163823) do
+ActiveRecord::Schema.define(version: 20161221092447) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,17 +31,11 @@ ActiveRecord::Schema.define(version: 20161216163823) do
 
   create_table "devices", force: :cascade do |t|
     t.string  "name"
-    t.string  "config_file"
     t.boolean "needs_rom_dump"
     t.integer "vendor_id"
+    t.string  "codename"
+    t.string  "commit"
     t.index ["vendor_id"], name: "index_devices_on_vendor_id", using: :btree
-  end
-
-  create_table "devices_options", id: false, force: :cascade do |t|
-    t.integer "device_id"
-    t.integer "option_id"
-    t.index ["device_id"], name: "index_devices_options_on_device_id", using: :btree
-    t.index ["option_id"], name: "index_devices_options_on_option_id", using: :btree
   end
 
   create_table "jobs", force: :cascade do |t|
@@ -53,7 +47,12 @@ ActiveRecord::Schema.define(version: 20161216163823) do
   end
 
   create_table "options", force: :cascade do |t|
-    t.string "label"
+    t.string  "label"
+    t.integer "device_id"
+    t.string  "type"
+    t.string  "default"
+    t.string  "possible_values"
+    t.index ["device_id"], name: "index_options_on_device_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
