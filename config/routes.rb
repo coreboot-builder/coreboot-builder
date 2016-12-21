@@ -12,4 +12,10 @@ Rails.application.routes.draw do
       resources :devices, only: [:index]
     end
   end
+
+  resources :build
+
+  if Rails.env.development?
+    mount LetterOpenerWeb::Engine, at: "/letter_opener"
+  end
 end
