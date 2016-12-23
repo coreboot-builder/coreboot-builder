@@ -9,5 +9,5 @@
               %span.card-title
                 = name
               .card-action
-                = link_to('Twitter', "https://twitter.com/#{media.fetch(:twitter)}") if media.has_key?(:twitter)
-                = link_to('Github', "https://github.com/#{media.fetch(:github)}") if media.has_key?(:github)
+                = link_to('Twitter', "https://twitter.com/#{media.fetch(:twitter)}", target: '_blank') if media.has_key?(:twitter)
+                = link_to('Github', "https://github.com/#{media.fetch(:github)}", target: '_blank') if media.has_key?(:github)
