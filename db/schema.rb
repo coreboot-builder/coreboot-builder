@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161221184901) do
+ActiveRecord::Schema.define(version: 20161223130405) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 20161221184901) do
     t.string  "data_type"
     t.string  "default"
     t.string  "possible_values"
+    t.integer "state",           default: 0
     t.index ["device_id"], name: "index_options_on_device_id", using: :btree
   end
 

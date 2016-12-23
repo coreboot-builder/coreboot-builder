@@ -17,17 +17,19 @@ class ConfigReader
           raise "Could not update device"
         end
 
+        device.options.update_all(state: 10)
+
         json_data.fetch('options').each do |option_key, option_value|
           unless option = Option.find_or_create_by(device: device, label: option_key)
             raise "Could not find or create option" unless option
           end
 
           if option_value.kind_of?(Array)
-            unless option.update(data_type: :enum, default: nil, possible_values: option_value)
+            unless option.update(data_type: :enum, default: nil, possible_values: option_value, state: 0)
               raise "Could not update option"
             end
           else
-            unless option.update(data_type: :bool, default: option_value, possible_values: nil)
+            unless option.update(data_type: :bool, default: option_value, possible_values: nil, state: 0)
               raise "Could not update option"
             end
           end
