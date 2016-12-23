@@ -6,6 +6,8 @@ class Api::V1::BuildersController < ApiController
       raise ActiveRecord::RecordNotFound unless build
 
       build.update(builder_params)
+
+      BuildMailer.build_done_mail(build).deliver
     end
   end
 
