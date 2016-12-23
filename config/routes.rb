@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  root to: "frontend#index"
-  post "start-build" => 'frontend#start_build'
+	root to: "builds#new"
+	post "start-build" => 'frontend#start_build'
   get "/status/:uuid" => "build_status#show"
 
   # API endpoints
@@ -18,7 +18,19 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :build
+  resources :builds, only: [:show, :new, :create] do
+    member do
+      get :choose_device
+      get :choose_rom
+      get :choose_options
+      get :choose_gpg
+
+      patch :update_device
+      patch :update_rom_file
+      patch :update_options
+      patch :update_gpg
+    end
+  end
 
   if Rails.env.development?
     mount LetterOpenerWeb::Engine, at: "/letter_opener"
