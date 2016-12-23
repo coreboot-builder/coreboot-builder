@@ -4,7 +4,7 @@ class Api::V1::DevicesController < ApplicationController
     devices = Device.select(:id, :name)
       .where(vendor_id: params[:vendor_id])
 
-    devices_data = devices.map do |device| 
+    devices_data = devices.map do |device|
       {
         id: device.id,
         label: device.name,

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 	# API endpoints
   namespace :api do
     namespace :v1 do
-      get "/call/:uuid" => "jenkins#call"
+      patch "/finished" => "builders#finished"
 
       resources :vendors, only: [:index]
       resources :devices, only: [:index]
