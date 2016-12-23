@@ -6,7 +6,12 @@ Rails.application.routes.draw do
 	# API endpoints
   namespace :api do
     namespace :v1 do
-      patch "/finished" => "builders#finished"
+      resources :builds, only: [] do
+				member do
+					patch :finish
+					patch :fail
+				end
+      end
 
       resources :vendors, only: [:index]
       resources :devices, only: [:index]
