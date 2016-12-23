@@ -36,6 +36,8 @@ gem 'dotenv-rails'
 # Use Puma as the app server
 gem 'puma', '3.4.0'
 
+gem 'sidekiq'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
