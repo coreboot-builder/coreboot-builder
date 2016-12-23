@@ -52,6 +52,7 @@ class BuildsController < ApplicationController
 
   def update_gpg
     if @build.update(gpg_params.merge({state: Build.states[:configured]}))
+      JenkinsWorker.perform_async(@build.id)
       redirect_to build_path(@build)
     else
       flash[:error] = t('.error')
