@@ -1,6 +1,6 @@
 class Build < ActiveRecord::Base
-  validates :uuid, presence: true
   validates :state, presence: true
+  validates :email, presence: true
 
   belongs_to :device
   has_many :configurations
