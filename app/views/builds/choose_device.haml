@@ -1,0 +1,3 @@
+= form_for @build, url: update_device_build_url(@build) do |f|
+  = f.select :device_id, Device.all.map{ |d| [d.codename, d.id] }
+  = f.submit

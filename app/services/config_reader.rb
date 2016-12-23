@@ -25,7 +25,7 @@ class ConfigReader
           end
 
           if option_value.kind_of?(Array)
-            unless option.update(data_type: :enum, default: nil, possible_values: option_value, state: 0)
+            unless option.update(data_type: :enum, default: nil, possible_values: option_value.join(","), state: 0)
               raise "Could not update option"
             end
           else

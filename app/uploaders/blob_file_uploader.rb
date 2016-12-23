@@ -1,8 +1,6 @@
 # encoding: utf-8
 
 class BlobFileUploader < CarrierWave::Uploader::Base
-  storage :sftp
-
   def filename
     'rom.bin'
   end
