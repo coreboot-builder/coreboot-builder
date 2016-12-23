@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161223130405) do
+ActiveRecord::Schema.define(version: 20161223174225) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20161223130405) do
     t.boolean "downloaded"
     t.json    "config"
     t.string  "uuid",                   null: false
+    t.string  "gpg_name"
     t.index ["device_id"], name: "index_builds_on_device_id", using: :btree
     t.index ["uuid"], name: "index_builds_on_uuid", unique: true, using: :btree
   end
