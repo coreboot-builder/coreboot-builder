@@ -17,6 +17,7 @@ class Build < ActiveRecord::Base
 
   def create_jenkins_config
     json_conf = {
+      id: id,
       uuid: uuid,
       codename: device.codename,
       commit: device.commit,
