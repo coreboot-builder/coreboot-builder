@@ -1,19 +1,20 @@
 = render 'animated_slide' do
-  .disclaimerBox.z-depth-1
-    %p DISCLAIMER
-    %p The backup of your BIOS chip contains various binary components that we are not allowed to redistribute. Therefore, we will extract them from your backup and place them into the new image along with coreboot. The new image will be encrypted for you only, to circumvent copyright issues.
+  = form_for @build, method: :patch, multipart: true do |f|
+    .disclaimerBox.z-depth-1
+      %p DISCLAIMER
+      %p The backup of your BIOS chip contains various binary components that we are not allowed to redistribute. Therefore, we will extract them from your backup and place them into the new image along with coreboot. The new image will be encrypted for you only, to circumvent copyright issues.
 
-  .row
-    .col.s12.file-field
-      .btn.grey.darken-2
-        %span Select BIOS File  &#9679;&#9679;&#9679;
-        %input{type: 'file'}
+    .row
+      .col.s12.file-field
+        .btn.grey.darken-2
+          %span Select BIOS File  &#9679;&#9679;&#9679;
+          %input{type: 'file'}, 
 
-  .row
-    .col.s12
-      = render 'back_button' do
-        = image_tag 'back-arrow.svg', class: 'back-arrow'
-        back
+    .row
+      .col.s12
+        = render 'back_button' do
+          = image_tag 'back-arrow.svg', class: 'back-arrow'
+          back
 
-      = render 'next_button' do
-        next
+        = render 'next_button' do
+          next

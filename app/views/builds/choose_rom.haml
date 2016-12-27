@@ -8,7 +8,7 @@
       .btn.grey.darken-2
         %span Select BIOS File  &#9679;&#9679;&#9679;
         = f.file_field :blob_file
-        = f.submit
+        / = button_tag :upload, id: 'upload-button'
 
   .row
     .col.s12
