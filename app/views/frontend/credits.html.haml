@@ -2,10 +2,11 @@
 .container
   .row
     .col.s12.m6
-    - @members.each do |name, media|
-      .card.blue-grey.darken-1
-        .card-content.white-text
-          %span.card-title
-            = name
-          .card-action
-            = link_to('Twitter', "https://twitter.com/#{media.fetch(:twitter)}") if media.has_key?(:twitter)
+      .content
+        - @members.each do |name, media|
+          .card.blue-grey.darken-1
+            .card-content.white-text
+              %span.card-title
+                = name
+              .card-action
+                = link_to('Twitter', "https://twitter.com/#{media.fetch(:twitter)}") if media.has_key?(:twitter)
