@@ -9,7 +9,7 @@ class FrontendController < ApplicationController
 
 	def credits
 		@members = {
-			'Phillip Deppenwiese': {
+			'Philipp Deppenwiese': {
 				twitter: '_zaolin_',
 				picture: ''
 			},
