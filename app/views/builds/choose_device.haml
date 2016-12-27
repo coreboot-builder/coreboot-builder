@@ -1,3 +1,19 @@
 = form_for @build, url: update_device_build_url(@build) do |f|
-  = f.select :device_id, Device.all.map{ |d| [d.codename, d.id] }
-  = f.submit
+  .row
+    .col.s12.input-field
+      %input#device-vendor{:type => "text"}
+      %label{:for => "device-vendor"} Choose the vendor of your device
+
+  .row
+    .col.s12.input-field
+      = f.text_field :device_id, id: 'device-model', disabled: true
+      %label{:for => "device-model"} Choose the model of your device
+
+  .row
+    .col.s12
+      = render 'frontend/back_button' do
+        = image_tag 'back-arrow.svg', class: 'back-arrow'
+        back
+
+      = render 'frontend/next_button' do
+        next

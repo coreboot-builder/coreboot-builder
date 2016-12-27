@@ -1,20 +1,21 @@
 = render 'animated_slide' do
-  .row
-    .col.s12.input-field
-      %input#user-email{type: 'text'}
-      %label{for: 'user-email'} Type in your email address
+  = form_for @build do |f|
+    .row
+      .col.s12.input-field
+        = f.text_field :email, id: 'user-email'
+        %label{for: 'user-email'} Type in your email address
 
-  .row
-    .col.s12.input-field
-      %textarea#gpg-key.materialize-textarea
-      %label{for: 'gpg-key'} Insert your GPG key here
+    .row
+      .col.s12.input-field
+        %textarea#gpg-key.materialize-textarea
+        %label{for: 'gpg-key'} Insert your GPG key here
 
 
-  .row
-    .col.s12
-      = render 'back_button' do
-        = image_tag 'back-arrow.svg', class: 'back-arrow'
-        back
+    .row
+      .col.s12
+        = render 'back_button' do
+          = image_tag 'back-arrow.svg', class: 'back-arrow'
+          back
 
-      = render 'shake_button' do
-        build
+        = render 'next_button' do
+          next
