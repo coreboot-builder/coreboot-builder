@@ -14,7 +14,7 @@ class FrontendController < ApplicationController
 				picture: ''
 			},
 			'Julian Laubstein': {
-				twitter: 'spinxc0re',
+				twitter: 'sphinxc0re',
 				picture: ''
 			},
 			'Marcel Schütz': {
