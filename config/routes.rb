@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	root to: "builds#new"
+	root to: "frontend#index"
 	post "start-build" => 'frontend#start_build'
   get "/status/:uuid" => "build_status#show"
 
