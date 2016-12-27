@@ -29,6 +29,7 @@ class BuildsController < ApplicationController
   end
 
   def update_rom_file
+    binding.pry
     if @build.update(rom_file_params)
       redirect_to choose_options_build_path(@build)
     else

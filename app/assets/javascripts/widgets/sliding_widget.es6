@@ -8,6 +8,14 @@ class SlidingWidget {
     this.speed = speed;
   }
 
+  reload() {
+    this.content = this.element.find('.content-canvas');
+    this.nextButton = this.element.find('[data-next-button]');
+    this.prevButton = this.element.find('[data-prev-button]');
+    this.form = this.element.find('form');
+    return this;
+  }
+
   setContent(html) {
     this.content.html(html);
   }

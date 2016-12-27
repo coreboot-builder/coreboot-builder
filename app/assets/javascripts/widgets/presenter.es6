@@ -14,16 +14,11 @@ class Presenter {
       const nextSlide = this.slides[index + 1];
 
       if (index != (this.slides.length - 1)) {
-        currentSlide.nextButton.click(() => {
-          nextSlide.slideCenter();
-          this.processSlide(currentSlide, nextSlide);
-        });
+        this.attachNextClickHandler(currentSlide, index);
       }
 
       if (index != 0) {
-        currentSlide.prevButton.click(() => {
-          currentSlide.slideRight();
-        });
+        this.attachPrevClickHandler(currentSlide, index);
       }
 
       currentSlide.slideRight();
@@ -32,11 +27,32 @@ class Presenter {
     this.slides[0].slideCenter();
   }
 
-  addSlide()
+  attachPrevClickHandler(slide, index) {
+    if (index != 0) {
+      slide.prevButton.click(() => {
+        slide.slideRight();
+        this.currentSlide--;
+      });
+    }
+  }
 
-  processSlide(currentSlide, nextSlide) {
+  attachNextClickHandler(slide, index) {
+    const nextSlide = this.slides[index + 1];
+    if (nextSlide) {
+      slide.reload().nextButton.click(() => {
+        nextSlide.slideCenter();
+        this.processSlide();
+        this.currentSlide++;
+      });  
+    }
+  }
+
+  processSlide() {
+    const currentSlide = this.slides[this.currentSlide];
+    const nextSlide = this.slides[this.currentSlide + 1];
     const form = currentSlide.form;
-    console.log(form);
+    const self = this;
+
     if (form.length > 0) {
       const action = form.prop('action');
       const method = form.prop('method');
@@ -55,11 +71,11 @@ class Presenter {
             'api/v1/devices.json'
           );
         }
-          
+        self.attachNextClickHandler(nextSlide, self.currentSlide);
+        self.attachPrevClickHandler(nextSlide, self.currentSlide);
       }).error(function(data) {
         
       });  
     }
-    
   }
 }

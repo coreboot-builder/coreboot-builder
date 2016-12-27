@@ -4,13 +4,6 @@
       .col.s12.input-field
         = f.text_field :email, id: 'user-email'
         %label{for: 'user-email'} Type in your email address
-
-    .row
-      .col.s12.input-field
-        %textarea#gpg-key.materialize-textarea
-        %label{for: 'gpg-key'} Insert your GPG key here
-
-
     .row
       .col.s12
         = render 'back_button' do

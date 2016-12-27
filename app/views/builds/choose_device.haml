@@ -6,7 +6,8 @@
 
   .row
     .col.s12.input-field
-      = f.text_field :device_id, id: 'device-model', disabled: true
+      = text_field_tag :device_name, nil, id: 'device-model', disabled: true
+      = f.hidden_field :device_id
       %label{:for => "device-model"} Choose the model of your device
 
   .row
