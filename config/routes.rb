@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-	root to: "builds#new"
-	post "start-build" => 'frontend#start_build'
-  get "/status/:uuid" => "build_status#show"
+	root to: 'builds#new'
+	post 'start-build' => 'frontend#start_build'
+  get '/status/:uuid' => "build_status#show"
+  get 'credits' => 'frontend#credits'
 
   # API endpoints
   namespace :api do
