@@ -1,5 +1,11 @@
 class BuildsController < ApplicationController
-  before_action :load_build, except: [:new, :create]
+  before_action :load_build, except: [:start, :new, :create]
+  layout 'frontend'
+
+
+  def start
+
+  end
 
   def new
     @build = Build.new
