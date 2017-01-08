@@ -5,4 +5,6 @@ $(function() {
     '/api/v1/vendors.json',
     '/api/v1/devices.json'
   );
+
+  $('select').material_select();
 });
