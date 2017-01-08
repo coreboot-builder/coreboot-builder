@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :builds, only: [:show, :new, :create] do
+  resources :builds, only: [:index, :show, :new, :create] do
     member do
       get :choose_device
       get :choose_rom

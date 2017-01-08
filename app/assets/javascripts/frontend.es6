@@ -1,10 +1,9 @@
 $(function() {
-  new Presenter($('[data-presenter]'), 400);
-
+  alert(1);
   new DeviceInput(
     $('#device-vendor'),
     $('#device-model'),
-    'api/v1/vendors.json',
-    'api/v1/devices.json'
+    '/api/v1/vendors.json',
+    '/api/v1/devices.json'
   );
 });

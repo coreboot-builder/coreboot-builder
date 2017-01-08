@@ -1,10 +1,15 @@
 class BuildsController < ApplicationController
-  before_action :load_build, except: [:start, :new, :create]
+  before_action :load_build, except: [:index, :start, :new, :create]
   layout 'frontend'
 
 
   def start
 
+  end
+
+  def index
+    @builds = Build.where(email: build_params[:email])
+    @email = build_params[:email]
   end
 
   def new
