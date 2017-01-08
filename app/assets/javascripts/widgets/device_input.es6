@@ -6,13 +6,20 @@ class DeviceInput {
       $(model_input).prop("disabled", true).val('');
     };
 
-    const select_callback = function( event, ui ) {
+    const device_select_callback = function(event, ui) {
+      console.log(ui);
+      $('input[name="build[device_id]"]').val(ui.item.id);
+    }
+
+    const vendor_select_callback = function( event, ui ) {
       $.ajax({
         url: device_endpoint,
         data: { vendor_id: ui.item.id }
       }).done(function(data) {
         model_input.autocomplete({
-          source: data
+          source: data,
+          minLength: 2,
+          select: device_select_callback
         }).prop("disabled", false).prop('value', null);
       }).error(function(data) {
         disable_model_input();
@@ -23,7 +30,7 @@ class DeviceInput {
     vendor_input.autocomplete({
       source: vendor_endpoint,
       minLength: 2,
-      select: select_callback
+      select: vendor_select_callback
     }).on("autocompletechange", function( event, ui ) {
       if (ui.item == null) {
         disable_model_input();

@@ -9,6 +9,7 @@
       .col.s12.input-field
         %input#device-model{:type => "text", disabled: true}
         %label{:for => "device-model"} Choose the model of your device
+        = f.hidden_field :device_id
     .row
       .col.s12
         = link_to 'Back', root_path, class: 'btn teal lighten-3 black-text'
