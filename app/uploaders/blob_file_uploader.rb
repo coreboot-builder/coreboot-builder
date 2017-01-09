@@ -2,10 +2,10 @@
 
 class BlobFileUploader < CarrierWave::Uploader::Base
   def filename
-    'rom.bin'
+    "rom.bin"
   end
 
   def store_dir
-    "#{model.uuid}"
+    "upload/#{model.uuid}"
   end
 end
