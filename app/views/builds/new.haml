@@ -1,3 +1,10 @@
-= form_for @build do |f|
-  = f.text_field :email
-  = f.submit
+= render 'frontend/animated_slide' do
+  = form_for :build, url: builds_path, method: :get do |f|
+    .row
+      .col.s12.input-field
+        = f.text_field :email, id: 'user-email'
+        %label{for: 'user-email'} Type in your email address
+    .row
+      .col.s12
+        = link_to 'Back', root_path, class: 'btn teal lighten-3 black-text'
+        = f.submit 'Next', class: 'btn teal lighten-3 black-text'

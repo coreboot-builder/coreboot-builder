@@ -1,0 +1,9 @@
+= render 'frontend/animated_slide' do
+  = form_for :build, url: builds_path, method: :post do |f|
+    = f.hidden_field :email, value: @email
+    .row
+      .col.s12.input-field 
+        = f.submit 'New build', class: 'btn teal lighten-3 black-text'
+        %ul
+          - @builds.each do |build|
+            %li= link_to build.uuid, build_path(build)

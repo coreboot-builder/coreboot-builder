@@ -14,4 +14,6 @@
 
     = favicon_link_tag
   %body
-    = yield
+    = render 'frontend/top_bar'
+    #content
+      = yield

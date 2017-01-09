@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	root to: 'builds#new'
+	root to: 'builds#start'
 	post 'start-build' => 'frontend#start_build'
   get '/status/:uuid' => "build_status#show"
   get 'credits' => 'frontend#credits'
@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :builds, only: [:show, :new, :create] do
+  resources :builds, only: [:index, :show, :new, :create] do
     member do
       get :choose_device
       get :choose_rom

@@ -1,5 +1,12 @@
-= form_for @build, url: update_gpg_build_path(@build) do |f|
-  = f.select :gpg, Build.where(email: @build.email).map{ |b| [b.gpg, b.gpg_name] }
-  = f.text_field :gpg_name
-  = f.text_area :gpg
-  = f.submit
+= render 'frontend/animated_slide' do
+  = form_for @build, url: update_gpg_build_path(@build) do |f|
+    .row
+      .col.s12.input-field
+        = f.select :gpg, Build.where(email: @build.email).map{ |b| [b.gpg, b.gpg_name] }
+        = f.label 'Select an existing GPG-Key'
+      .col.s12.input-field
+        = f.text_field :gpg_name
+      .col.s12.input-field
+        = f.text_area :gpg
+        = f.label 'Or paste your GPG key'
+        = f.submit 'Build', class: 'btn teal lighten-3 black-text'

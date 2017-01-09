@@ -1,3 +1,17 @@
-= form_for @build, url: update_device_build_url(@build) do |f|
-  = f.select :device_id, Device.all.map{ |d| [d.codename, d.id] }
-  = f.submit
+= render 'frontend/animated_slide' do
+  = form_for @build, url: update_device_build_url(@build) do |f|
+    .row
+      .col.s12.input-field
+        %input#device-vendor{:type => "text"}
+        %label{:for => "device-vendor"} Choose the vendor of your device
+
+    .row
+      .col.s12.input-field
+        %input#device-model{:type => "text", disabled: true}
+        %label{:for => "device-model"} Choose the model of your device
+        = f.hidden_field :device_id
+    .row
+      .col.s12
+        = link_to 'Back', root_path, class: 'btn teal lighten-3 black-text'
+        = f.submit 'Next', class: 'btn teal lighten-3 black-text'
+
