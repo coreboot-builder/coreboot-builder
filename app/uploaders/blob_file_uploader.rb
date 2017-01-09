@@ -6,6 +6,6 @@ class BlobFileUploader < CarrierWave::Uploader::Base
   end
 
   def store_dir
-    "#{ENV['SFTP_BASE_DIR']}/#{model.uuid}"
+    "#{model.uuid}"
   end
 end
