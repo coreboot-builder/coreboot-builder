@@ -17,7 +17,7 @@ class ApiController < ActionController::Base
 
   def check_api_token
     unless secure_compare(ENV['JENKINS_API_TOKEN'], request.headers['HTTP_X_API_TOKEN'])
-      raise ActionController::BadRequest
+      head :forbidden
     end
   end
 end

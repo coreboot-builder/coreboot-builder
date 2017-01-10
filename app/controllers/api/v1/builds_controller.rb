@@ -8,6 +8,8 @@ class Api::V1::BuildsController < ApiController
     if build.update(state: Bulid.states[:succeeded])
       BuildMailer.build_done_mail(build).deliver
     end
+
+    head :ok
   end
 
   # PATCH /api/v1/build/:id/fail
@@ -17,5 +19,7 @@ class Api::V1::BuildsController < ApiController
     if build.update(state: Bulid.states[:failed])
       BuildMailer.build_done_mail(build).deliver
     end
+
+    head :ok
   end
 end
