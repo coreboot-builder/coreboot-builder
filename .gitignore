@@ -44,7 +44,5 @@ bower.json
 !/log/.keep
 /tmp
 
-config/database.yml
-
 .byebug_history
 /.idea/*
