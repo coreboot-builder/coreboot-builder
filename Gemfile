@@ -38,6 +38,12 @@ gem 'puma', '3.4.0'
 
 gem 'sidekiq'
 
+# Until the new API calls are generally available, you must manually specify my fork
+# of the Heroku API gem:
+gem 'platform-api', github: 'jalada/platform-api', branch: 'master'
+
+gem 'letsencrypt-rails-heroku', group: 'production'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
