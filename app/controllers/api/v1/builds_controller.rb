@@ -5,7 +5,7 @@ class Api::V1::BuildsController < ApiController
   def finish
     build = Build.find(params[:id])
 
-    if build.update(state: Bulid.states[:succeeded])
+    if build.update(state: Build.states[:succeeded])
       BuildMailer.build_done_mail(build).deliver
     end
 
@@ -16,7 +16,7 @@ class Api::V1::BuildsController < ApiController
   def fail
     build = Build.find(params[:id])
 
-    if build.update(state: Bulid.states[:failed])
+    if build.update(state: Build.states[:failed])
       BuildMailer.build_done_mail(build).deliver
     end
 
