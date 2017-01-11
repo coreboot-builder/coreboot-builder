@@ -1,3 +1,3 @@
 //= require 'jquery2'
-//= require 'jquery-ui'
+//= require select2
 //= require ./widgets/device_input
