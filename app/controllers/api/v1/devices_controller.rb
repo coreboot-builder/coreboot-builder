@@ -7,13 +7,12 @@ class Api::V1::DevicesController < ApplicationController
     devices_data = devices.map do |device|
       {
         id: device.id,
-        label: device.name,
-        value: device.name
+        text: device.name
       }
     end
 
     respond_to do |format|
-      format.json  { render :json => { items: devices_data } }
+      format.json  { render :json => devices_data}
     end
   end
 end
