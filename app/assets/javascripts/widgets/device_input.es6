@@ -4,30 +4,25 @@ class DeviceInput {
     const device_select_callback = function(event, ui) {
       $('input[name="build[device_id]"]').val(ui.item.id);
     };
+
     const vendor_select_callback = function( event, ui ) {
       const vendor_id = event.params.data.id;
-      $(device_input).prop("disabled", null).prop('value', null).select2({
-        theme: 'classic',
-        allowClear: true,
-        ajax: {
-          url: device_endpoint,
-          device_id: vendor_id,
-          quietMillis: 50,
-          processResults: function (data) {
-            return {
-              results: $.map(data.items, function (item) {
-                return {
-                  text: item.value,
-                  id: item.id
-                }
-              })
-            };
-          }
-        },
+
+      $.ajax({
+        url: device_endpoint,
+        data: {
+          vendor_id: vendor_id
+        }
+      }).done(function(response) {
+        console.log(response);
+
+        $(device_input).prop("disabled", null).prop('value', null).select2({
+          theme: 'classic',
+          allowClear: true,
+          data: response
+        });
       });
     };
-
-    
 
     $(vendor_input).select2({
       theme: 'classic',
@@ -36,7 +31,8 @@ class DeviceInput {
         url: vendor_endpoint,
         quietMillis: 50,
         processResults: function (data) {
-          return {
+          console.log(data);
+          var results =  {
             results: $.map(data.items, function (item) {
               return {
                 text: item.value,
@@ -44,6 +40,8 @@ class DeviceInput {
               }
             })
           };
+          console.log(results);
+          return results;
         }
       },
     }).on('select2:select', vendor_select_callback);
