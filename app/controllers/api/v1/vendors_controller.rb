@@ -13,7 +13,7 @@ class Api::V1::VendorsController < ApplicationController
     end
 
     respond_to do |format|
-      format.json  { render :json => vendors_data }
+      format.json  { render :json => { items: vendors_data } }
     end
   end
 end

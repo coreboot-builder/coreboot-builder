@@ -1,12 +1,10 @@
 $(function() {
   new DeviceInput(
-    $('#device-vendor'),
-    $('#device-model'),
+    $('#device_vendor'),
+    $('#device_model'),
     '/api/v1/vendors.json',
     '/api/v1/devices.json'
   );
-
-  $('select').material_select();
 
   new StatusUpdater($('section.build_state'));
 });

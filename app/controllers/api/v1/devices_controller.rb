@@ -13,7 +13,7 @@ class Api::V1::DevicesController < ApplicationController
     end
 
     respond_to do |format|
-      format.json  { render :json => devices_data }
+      format.json  { render :json => { items: devices_data } }
     end
   end
 end
