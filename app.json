@@ -1,0 +1,105 @@
+{
+  "name": "coreboot-builder",
+  "description": "",
+  "scripts": {
+  },
+  "env": {
+    "ACME_DOMAIN": {
+      "required": true
+    },
+    "ACME_EMAIL": {
+      "required": true
+    },
+    "HEROKU_APP": {
+      "required": true
+    },
+    "HEROKU_TOKEN": {
+      "required": true
+    },
+    "JEKNINS_PASSWORD": {
+      "required": true
+    },
+    "JENKINS_API_TOKEN": {
+      "required": true
+    },
+    "JENKINS_BUILD_JOB_NAME": {
+      "required": true
+    },
+    "JENKINS_SERVER_URL": {
+      "required": true
+    },
+    "JENKINS_USERNAME": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "MAILGUN_API_KEY": {
+      "required": true
+    },
+    "MAILGUN_DOMAIN": {
+      "required": true
+    },
+    "MAILGUN_PUBLIC_KEY": {
+      "required": true
+    },
+    "MAILGUN_SMTP_LOGIN": {
+      "required": true
+    },
+    "MAILGUN_SMTP_PASSWORD": {
+      "required": true
+    },
+    "MAILGUN_SMTP_PORT": {
+      "required": true
+    },
+    "MAILGUN_SMTP_SERVER": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_LOG_TO_STDOUT": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "REDIS_URL": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    },
+    "SFTP_FOLDER": {
+      "required": true
+    },
+    "SFTP_HOST": {
+      "required": true
+    },
+    "SFTP_PASSWORD": {
+      "required": true
+    },
+    "SFTP_PORT": {
+      "required": true
+    },
+    "SFTP_USER": {
+      "required": true
+    }
+  },
+  "formation": {
+  },
+  "addons": [
+    "mailgun",
+    "heroku-postgresql",
+    "heroku-redis",
+    "scheduler"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
