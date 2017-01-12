@@ -9,6 +9,7 @@
       .col.s12.file-field
         .btn.grey.darken-2
           %span Select BIOS File  &#9679;&#9679;&#9679;
+          = f.hidden_field :id
           = f.file_field :blob_file
     .row
       .col.s12
