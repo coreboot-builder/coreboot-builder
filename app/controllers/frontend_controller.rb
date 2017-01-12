@@ -12,18 +12,18 @@ class FrontendController < ApplicationController
 			'Philipp Deppenwiese': {
 				twitter: '_zaolin_',
 				picture: '',
-				github: 'zaolin'
+				github: 'zaolin',
 			},
 			'Julian Laubstein': {
 				twitter: 'sphinxc0re',
 				picture: '',
-				github: 'sphinxc0re'
+				github: 'sphinxc0re',
 			},
 			'Marcel Schütz': {
-				github: 'debao84'
 			},
 			'Alexander Dorn': {
-			} 
+				github: 'debao84',
+			}
 		}
 
 		render 'credits'
