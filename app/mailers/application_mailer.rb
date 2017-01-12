@@ -1,5 +1,5 @@
 class ApplicationMailer < ActionMailer::Base
 
-  default from: 'builder@coreboot.org'
-  
+  default from: 'no-reply@coreboot.me'
+
 end
