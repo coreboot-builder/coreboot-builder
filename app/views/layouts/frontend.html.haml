@@ -16,5 +16,8 @@
   %body
     = render 'frontend/top_bar'
     #content
+      .row
+        .col.l8.s12.push-l2.push-s0
+          = flash_messages
       = yield
     = render 'frontend/footer'

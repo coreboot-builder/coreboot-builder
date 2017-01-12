@@ -1,10 +1,10 @@
 class BuildsController < ApplicationController
   before_action :load_build, except: [:index, :start, :new, :create]
+  before_action { flash.clear }
   layout 'frontend'
 
 
   def start
-
   end
 
   def index
@@ -21,29 +21,29 @@ class BuildsController < ApplicationController
     if @build.save
       redirect_to choose_device_build_path(@build)
     else
-      flash[:error] = t('.error')
+      flash[:error] = @build.errors.full_messages.to_sentence
       render :new
     end
   end
 
   def update_device
-    if @build.update(device_params)
+    if @build.update(device_params.merge({state: Build.states[:device_chosen]}))
       if @build.device.needs_rom_dump?
         redirect_to choose_rom_build_path(@build)
       else
         redirect_to choose_options_build_path(@build)
       end
     else
-      flash[:error] = t('.error')
+      flash[:error] = @build.errors.full_messages.to_sentence
       render :choose_device
     end
   end
 
   def update_rom_file
-    if @build.update(rom_file_params)
+    if @build.update(rom_file_params.merge({state: Build.states[:blob_file_uploaded]}))
       redirect_to choose_options_build_path(@build)
     else
-      flash[:error] = t('.error')
+      flash[:error] = @build.errors.full_messages.to_sentence
       render :choose_rom
     end
   end
@@ -58,7 +58,12 @@ class BuildsController < ApplicationController
       end
     end
 
-    redirect_to choose_gpg_build_path(@build)
+    if @build.update(state: Build.states[:options_configured])
+      redirect_to choose_gpg_build_path(@build)
+    else
+      flash[:error] = @build.errors.full_messages.to_sentence
+      render :choose_options
+    end
   end
 
   def update_gpg
@@ -66,7 +71,7 @@ class BuildsController < ApplicationController
       JenkinsWorker.perform_async(@build.id)
       redirect_to build_path(@build)
     else
-      flash[:error] = t('.error')
+      flash[:error] = @build.errors.full_messages.to_sentence
       render :choose_gpg
     end
   end
