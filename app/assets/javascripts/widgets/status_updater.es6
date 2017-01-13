@@ -15,7 +15,7 @@ class StatusUpdater {
     // Get state from remote
     $.ajax({
       url: `/api/v1/builds/${this.build_id}/state`
-    }).done(function(data) {
+    }).done((data) => {
       if (data.state != this.build_state) {
         window.location.reload(true);
       }

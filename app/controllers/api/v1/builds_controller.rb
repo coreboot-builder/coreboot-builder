@@ -1,5 +1,5 @@
 class Api::V1::BuildsController < ApiController
-  before_action :check_api_token
+  before_action :check_api_token, except: [:state]
 
   # PATCH /api/v1/build/:id/finish
   def finish
