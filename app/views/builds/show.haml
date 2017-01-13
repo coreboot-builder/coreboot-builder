@@ -1,9 +1,17 @@
 = render 'frontend/animated_slide' do
   %section.build_state{:'data-build-state' => @build.state, :'data-build-id' => @build.id}
   - if @build.pending?
+    Build is pending...
+    .progress.orange.lighten-4
+      .indeterminate.orange.darken-1
+  - if @build.build_started?
     Building coreboot image...
     .progress.orange.lighten-4
       .indeterminate.orange.darken-1
+  - if @build.succeeded?
+    Build succeeded
+  - if @build.failed?
+    Build failed
   - else
     %p Build still needs to be configured
     %p= "State: #{@build.state}"
