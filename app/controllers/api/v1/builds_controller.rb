@@ -9,7 +9,7 @@ class Api::V1::BuildsController < ApiController
       BuildMailer.build_done_mail(build).deliver
       head :ok
     else
-      head 422
+      head :unprocessable_entity
     end
   end
 
@@ -21,7 +21,7 @@ class Api::V1::BuildsController < ApiController
       BuildMailer.build_done_mail(build).deliver
       head :ok
     else
-      head 422
+      head :unprocessable_entity
     end
   end
 
@@ -29,10 +29,11 @@ class Api::V1::BuildsController < ApiController
   def start
     build = Build.find(params[:id])
 
-    if build.update(state: Build.states(:build_started))
+    if build.update(state: Build.states[:build_started])
       BuildMailer.build_started_mail(@build).deliver
       head :ok
     else
-      head 422
+      head :unprocessable_entity
     end
+  end
 end
