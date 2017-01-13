@@ -5,7 +5,7 @@ class Api::V1::BuildsController < ApiController
   def finish
     build = Build.find(params[:id])
 
-    if build.update_attribute(state: Build.states[:succeeded])
+    if build.update_attribute(:state ,Build.states[:succeeded])
       BuildMailer.build_done_mail(build).deliver
       head :ok
     else
@@ -17,7 +17,7 @@ class Api::V1::BuildsController < ApiController
   def fail
     build = Build.find(params[:id])
 
-    if build.update_attribute(state: Build.states[:failed])
+    if build.update_attribute(:state, Build.states[:failed])
       BuildMailer.build_done_mail(build).deliver
       head :ok
     else
@@ -29,7 +29,7 @@ class Api::V1::BuildsController < ApiController
   def start
     build = Build.find(params[:id])
 
-    if build.update_attribute(state: Build.states[:started])
+    if build.update_attribute(:state, Build.states[:started])
       BuildMailer.build_started_mail(build).deliver
       head :ok
     else
