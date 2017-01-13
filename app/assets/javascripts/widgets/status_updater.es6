@@ -17,7 +17,7 @@ class StatusUpdater {
       url: `/api/v1/builds/${this.build_id}/state`
     }).done(function(data) {
       if (data.state != this.build_state) {
-        this.element.location.reload(true);
+        window.location.reload(true);
       }
 
       setTimeout(() => {
