@@ -7,4 +7,6 @@ $(function() {
   );
 
   $('select').material_select();
+
+  new StatusUpdater($('section.build_state'));
 });

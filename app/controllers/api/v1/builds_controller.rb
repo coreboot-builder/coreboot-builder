@@ -36,4 +36,11 @@ class Api::V1::BuildsController < ApiController
       head :unprocessable_entity
     end
   end
+
+  # GET /api/v1/build/:id/state
+  def state
+    build = Build.find(params[:id])
+
+    render json: { state: build.state }
+  end
 end
