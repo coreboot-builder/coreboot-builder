@@ -19,7 +19,7 @@ class Build < ActiveRecord::Base
     options_configured: 30,
     configured: 40,
     pending: 50,
-    build_started:60,
+    started:60,
     succeeded: 70,
     failed: 80
   }
@@ -31,7 +31,7 @@ class Build < ActiveRecord::Base
   end
 
   def device_chosen_or_beyond?
-    %w(device_chosen blob_file_uploaded options_configured configured pending build_started succeeded failed).include?(self.state)
+    %w(device_chosen blob_file_uploaded options_configured configured pending started succeeded failed).include?(self.state)
   end
 
   def blob_file_uploaded_or_beyond_and_needs_rom?
@@ -39,11 +39,11 @@ class Build < ActiveRecord::Base
   end
 
   def blob_file_uploaded_or_beyond?
-    %w(blob_file_uploaded options_configured configured pending build_started succeeded failed).include?(self.state)
+    %w(blob_file_uploaded options_configured configured pending started succeeded failed).include?(self.state)
   end
 
   def configured_or_beyond?
-    %w(configured pending build_started succeeded failed).include?(self.state)
+    %w(configured pending started succeeded failed).include?(self.state)
   end
 
   def state_configured_and_needs_blob?
