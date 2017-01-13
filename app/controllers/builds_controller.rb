@@ -1,15 +1,18 @@
 class BuildsController < ApplicationController
   before_action :load_build, except: [:index, :start, :new, :create]
-  before_action { flash.clear }
   layout 'frontend'
-
 
   def start
   end
 
   def index
-    @builds = Build.where(email: build_params[:email])
-    @email = build_params[:email]
+    if build_params[:email].present?
+      @builds = Build.where(email: build_params[:email])
+      @email = build_params[:email]
+    else
+      flash[:error] = "Emai can't be blank"
+      redirect_to new_build_path
+    end
   end
 
   def new
@@ -21,7 +24,7 @@ class BuildsController < ApplicationController
     if @build.save
       redirect_to choose_device_build_path(@build)
     else
-      flash[:error] = @build.errors.full_messages.to_sentence
+      flash.now[:error] = @build.errors.full_messages.to_sentence
       render :new
     end
   end
@@ -34,7 +37,7 @@ class BuildsController < ApplicationController
         redirect_to choose_options_build_path(@build)
       end
     else
-      flash[:error] = @build.errors.full_messages.to_sentence
+      flash.now[:error] = @build.errors.full_messages.to_sentence
       render :choose_device
     end
   end
@@ -43,7 +46,7 @@ class BuildsController < ApplicationController
     if @build.update(rom_file_params.merge({state: Build.states[:blob_file_uploaded]}))
       redirect_to choose_options_build_path(@build)
     else
-      flash[:error] = @build.errors.full_messages.to_sentence
+      flash.now[:error] = @build.errors.full_messages.to_sentence
       render :choose_rom
     end
   end
@@ -61,7 +64,7 @@ class BuildsController < ApplicationController
     if @build.update(state: Build.states[:options_configured])
       redirect_to choose_gpg_build_path(@build)
     else
-      flash[:error] = @build.errors.full_messages.to_sentence
+      flash.now[:error] = @build.errors.full_messages.to_sentence
       render :choose_options
     end
   end
@@ -72,7 +75,7 @@ class BuildsController < ApplicationController
       BuildMailer.build_started_mail(@build).deliver
       redirect_to build_path(@build)
     else
-      flash[:error] = @build.errors.full_messages.to_sentence
+      flash.now[:error] = @build.errors.full_messages.to_sentence
       render :choose_gpg
     end
   end
