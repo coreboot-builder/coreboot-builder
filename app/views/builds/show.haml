@@ -4,13 +4,13 @@
     Build is pending...
     .progress.orange.lighten-4
       .indeterminate.orange.darken-1
-  - if @build.started?
+  - elsif @build.started?
     Building coreboot image...
     .progress.orange.lighten-4
       .indeterminate.orange.darken-1
-  - if @build.succeeded?
+  - elsif @build.succeeded?
     Build succeeded
-  - if @build.failed?
+  - elsif @build.failed?
     Build failed
   - else
     %p Build still needs to be configured
