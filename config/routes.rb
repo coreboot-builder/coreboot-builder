@@ -14,6 +14,7 @@ Rails.application.routes.draw do
 					patch :finish
 					patch :fail
 					patch :start
+					get :state
 				end
 			end
 
