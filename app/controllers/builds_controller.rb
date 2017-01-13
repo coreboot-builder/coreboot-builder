@@ -10,7 +10,7 @@ class BuildsController < ApplicationController
       @builds = Build.where(email: build_params[:email])
       @email = build_params[:email]
     else
-      flash[:error] = "Emai can't be blank"
+      flash[:error] = "Email field can't be blank"
       redirect_to new_build_path
     end
   end

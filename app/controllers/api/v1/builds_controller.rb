@@ -30,7 +30,7 @@ class Api::V1::BuildsController < ApiController
     build = Build.find(params[:id])
 
     if build.update(state: Build.states[:build_started])
-      BuildMailer.build_started_mail(@build).deliver
+      BuildMailer.build_started_mail(build).deliver
       head :ok
     else
       head :unprocessable_entity
