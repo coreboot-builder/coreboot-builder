@@ -10,7 +10,7 @@ class BuildsController < ApplicationController
       @builds = Build.where(email: build_params[:email])
       @email = build_params[:email]
     else
-      flash[:error] = "Emai can't be blank"
+      flash[:error] = "Email field can't be blank"
       redirect_to new_build_path
     end
   end
@@ -72,7 +72,6 @@ class BuildsController < ApplicationController
   def update_gpg
     if @build.update(gpg_params.merge({state: Build.states[:configured]}))
       JenkinsWorker.perform_async(@build.id)
-      BuildMailer.build_started_mail(@build).deliver
       redirect_to build_path(@build)
     else
       flash.now[:error] = @build.errors.full_messages.to_sentence

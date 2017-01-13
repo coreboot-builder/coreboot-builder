@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 				member do
 					patch :finish
 					patch :fail
+					patch :start
 				end
 			end
 
