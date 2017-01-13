@@ -24,6 +24,12 @@ class Build < ActiveRecord::Base
     failed: 80
   }
 
+  before_save do |record|
+    if record.gpg.present?
+      record.gpg = record.gpg.split("\n").map(&:strip).join("\n")
+    end
+  end
+
   def device_chosen_or_beyond?
     %w(device_chosen blob_file_uploaded options_configured configured pending build_started succeeded failed).include?(self.state)
   end

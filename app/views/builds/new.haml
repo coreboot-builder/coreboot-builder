@@ -2,7 +2,7 @@
   = form_for :build, url: builds_path, method: :get do |f|
     .row
       .col.s12.input-field
-        = f.text_field :email, id: 'user-email'
+        = f.email_field :email, id: 'user-email'
         %label{for: 'user-email'} Type in your email address
     .row
       .col.s12

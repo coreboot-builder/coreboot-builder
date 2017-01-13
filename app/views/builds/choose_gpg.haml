@@ -2,11 +2,6 @@
   = form_for @build, url: update_gpg_build_path(@build) do |f|
     .row
       .col.s12.input-field
-        = f.select :gpg, Build.where(email: @build.email).map{ |b| [b.gpg, b.gpg_name] }
-        = f.label 'Select an existing GPG-Key'
-      .col.s12.input-field
-        = f.text_field :gpg_name
-      .col.s12.input-field
-        = f.text_area :gpg
-        = f.label 'Or paste your GPG key'
+        = f.text_area :gpg, value: Build.where(email: @build.email).where.not(gpg: nil).last.try(:gpg), class: 'materialize-textarea'
+        = f.label 'Insert your GPG key'
         = f.submit 'Build', class: 'btn orange lighten-3 black-text'
