@@ -27,7 +27,8 @@ class BuildsController < ApplicationController
   end
 
   def update_device
-    if @build.update(device_params)
+    device_id = device_params[:device_model]
+    if @build.update(device_id: device_id)
       if @build.device.needs_rom_dump?
         redirect_to choose_rom_build_path(@build)
       else
@@ -78,7 +79,7 @@ class BuildsController < ApplicationController
   end
 
   def device_params
-    params.require(:build).permit(:device_id)
+    params.require(:build).permit(:device_model)
   end
 
   def rom_file_params

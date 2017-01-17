@@ -1,12 +1,14 @@
 = render 'frontend/animated_slide' do
   = form_for @build, url: update_device_build_url(@build) do |f|
     .row
-      .col.s12.input-field
-        = select_tag(:device_vendor)
+      .col.s12
+        = f.label :device_vendor
+        = select_tag('build[device_vendor]') 
 
     .row
-      .col.s12.input-field
-        = select_tag(:device_model)
+      .col.s12
+        = f.label :device_model
+        = select_tag('build[device_model]')
         = f.hidden_field :device_id
     .row
       .col.s12
