@@ -2,6 +2,7 @@ class DeviceInput {
 
   constructor(vendor_input, device_input, vendor_endpoint, device_endpoint) {
     const device_select_callback = function(event, ui) {
+      console.log('yay');
       $('input[name="build[device_id]"]').val(ui.item.id);
     };
 
@@ -14,24 +15,22 @@ class DeviceInput {
           vendor_id: vendor_id
         }
       }).done(function(response) {
-        console.log(response);
+        $(device_input).prop("disabled", null).prop('value', null);
+        $(device_input).find('option').remove();
 
-        $(device_input).prop("disabled", null).prop('value', null).select2({
+        $(device_input).select2({
           theme: 'classic',
-          allowClear: true,
           data: response
-        });
+        }).on('select2:select', device_select_callback);
       });
     };
 
     $(vendor_input).select2({
       theme: 'classic',
-      allowClear: true,
       ajax: {
         url: vendor_endpoint,
         quietMillis: 50,
         processResults: function (data) {
-          console.log(data);
           var results =  {
             results: $.map(data.items, function (item) {
               return {
@@ -40,7 +39,6 @@ class DeviceInput {
               }
             })
           };
-          console.log(results);
           return results;
         }
       },
@@ -50,10 +48,6 @@ class DeviceInput {
     $(device_input).select2({
       disabled: true
     });
-
-
-
-
 
     // const device_input = function() {
     //   $(model_input).siblings('label').removeClass('active');

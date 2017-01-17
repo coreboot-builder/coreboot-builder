@@ -1,7 +1,7 @@
 $(function() {
   new DeviceInput(
-    $('#device_vendor'),
-    $('#device_model'),
+    $('#build_device_vendor'),
+    $('#build_device_model'),
     '/api/v1/vendors.json',
     '/api/v1/devices.json'
   );
