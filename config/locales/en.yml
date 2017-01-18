@@ -20,7 +20,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  options:
+    enums:
+      select-payload: "Please select a payload which should be loaded after coreboot finished"
+    booleans:
+      seabios: "SeaBIOS"
+      grub2: "GRUB2"
+      deactivate-tpm: "Deactivate TPM"
+      bootchart: "Create boot process timestamps"
+    arrays:
+      lock-firmware: "Lock coreboot firmware against flash writes and reads"
   mailer:
     build_mailer:
       build_started_mail:
