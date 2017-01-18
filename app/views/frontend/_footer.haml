@@ -1,21 +1,16 @@
-%footer.page-footer#fixed-footer.orange.lighten-3.black-text.z-depth-2.hide-on-small-only
-  .row
-    .col.s12.m6
-      %h6
-        Contact
-      %ul
-        %li
-          E-Mail:
-          = mail_to 'builder@coreboot.org'
-        %li
-          GPG:
-          2ACFEA59A3
-          18D2336AC9
-          8968C3F3A1
-          246DC229AC
-    .col.s12.m6
-      %h6
-        About
-      %ul
-        %li
-          = link_to 'Credits', credits_path
+%footer.page-footer#fixed-footer.grey.darken-4.black-text.z-depth-2.hide-on-small-only.white-text
+  .container
+    .row
+      .col.s4
+        %ul.footer-item
+          %li
+            E-Mail:
+            = mail_to 'builder@coreboot.org'
+      .col.s7
+        %ul.footer-item
+          %li
+            GPG: 2ACF EA59 A318 D233 6AC9 8968 C3F3 A124 6DC2 29AC
+      .col.s1
+        %ul.footer-item
+          %li
+            = link_to 'Credits', credits_path, class: 'right'
