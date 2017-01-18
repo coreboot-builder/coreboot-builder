@@ -3,5 +3,5 @@
     .row
       .col.s12.input-field
         = f.text_area :gpg, value: Build.where(email: @build.email).where.not(gpg: nil).last.try(:gpg), class: 'materialize-textarea'
-        = f.label 'Insert your GPG key'
-        = f.submit 'Build', class: 'btn orange lighten-3 black-text'
+        = f.label t('wizard.gpg-key')
+        = f.submit t('wizard.build'), class: 'btn orange lighten-3 black-text'

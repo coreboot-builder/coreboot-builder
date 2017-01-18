@@ -3,15 +3,14 @@
     .row
       .col.s12.input-field
         %input#device-vendor{:type => "text"}
-        %label{:for => "device-vendor"} Choose the vendor of your device
+        %label{:for => "device-vendor"}= t('wizard.choose-vendor')
 
     .row
       .col.s12.input-field
         %input#device-model{:type => "text", disabled: true}
-        %label{:for => "device-model"} Choose the model of your device
+        %label{:for => "device-model"}= t('wizard.choose-device')
         = f.hidden_field :device_id
     .row
       .col.s12
-        = link_to 'Back', root_path, class: 'btn orange lighten-3 black-text'
-        = f.submit 'Next', class: 'btn orange lighten-3 black-text'
-
+        = link_to t('wizard.back'), root_path, class: 'btn orange lighten-3 black-text'
+        = f.submit t('wizard.next'), class: 'btn orange lighten-3 black-text'

@@ -3,8 +3,8 @@
     .row
       .col.s12.input-field
         = f.email_field :email, id: 'user-email'
-        %label{for: 'user-email'} Type in your email address
+        %label{for: 'user-email'}= t('wizard.email-address')
     .row
       .col.s12
-        = link_to 'Back', root_path, class: 'btn orange lighten-3 black-text'
-        = f.submit 'Next', class: 'btn orange lighten-3 black-text'
+        = link_to t('wizard.back'), root_path, class: 'btn orange lighten-3 black-text'
+        = f.submit t('wizard.next'), class: 'btn orange lighten-3 black-text'

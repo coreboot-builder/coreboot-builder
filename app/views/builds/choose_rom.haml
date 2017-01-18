@@ -2,15 +2,17 @@
   = form_for @build, url: update_rom_file_build_path(@build) do |f|
 
     .disclaimerBox.z-depth-1
-      %p DISCLAIMER
-      %p The backup of your BIOS chip contains various binary components that we are not allowed to redistribute. Therefore, we will extract them from your backup and place them into the new image along with coreboot. The new image will be encrypted for you only, to circumvent copyright issues.
+      %p= t('wizard.disclaimer.title')
+      %p= t('wizard.disclaimer.rom-upload-content')
 
     .row
       .col.s12.file-field
         .btn.grey.darken-2
-          %span Select BIOS File  &#9679;&#9679;&#9679;
+          %span
+            = t('wizard.select-bios-file')
+            &#9679;&#9679;&#9679;
           = f.hidden_field :id
           = f.file_field :blob_file
     .row
       .col.s12
-        = f.submit 'Next', class: 'btn orange lighten-3 black-text'
+        = f.submit t('wizard.next'), class: 'btn orange lighten-3 black-text'
