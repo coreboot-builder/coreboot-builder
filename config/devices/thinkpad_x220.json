@@ -1,7 +1,7 @@
 {
     "vendor": "Lenovo",
-    "device": "Thinkpad T520",
-    "codename": "LENOVO_T520",
+    "device": "Thinkpad X220",
+    "codename": "LENOVO_X220",
     "commit": "96326d3aefa0cfe252b44c68b540653ec47e9aa9",
     "blobs" : "yes",
     "options": {
