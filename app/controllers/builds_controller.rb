@@ -9,8 +9,13 @@ class BuildsController < ApplicationController
     if build_params[:email].present?
       @builds = Build.where(email: build_params[:email])
       @email = build_params[:email]
+
+      if @builds.empty?
+        @build = Build.create(email: @email)
+        redirect_to choose_device_build_path(@build)
+      end
     else
-      flash[:error] = "Email field can't be blank"
+      flash.now[:error] = "Email field can't be blank"
       redirect_to new_build_path
     end
   end
