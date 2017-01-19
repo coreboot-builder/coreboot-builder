@@ -3,8 +3,8 @@ source 'https://rubygems.org'
 ruby '2.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.0'
-gem 'pg', '~> 0.18'
+gem 'rails', '5.0.1'
+gem 'pg', '~> 0.19'
 # Use SASS for stylesheets
 gem 'sassc-rails', '~> 1.3'
 gem 'sassc', '~> 1.11'
@@ -26,7 +26,7 @@ gem 'jenkins_api_client', '1.4.2', require: false
 
 gem 'haml-rails', '0.9.0'
 
-gem 'carrierwave', '~> 0.11.2'
+gem 'carrierwave', '~> 1.0'
 gem 'carrierwave-ftp', '~> 0.2.8', require: 'carrierwave/storage/sftp'
 
 gem 'dotenv-rails'
