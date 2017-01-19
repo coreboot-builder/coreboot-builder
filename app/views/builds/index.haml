@@ -3,10 +3,10 @@
     = f.hidden_field :email, value: @email
     .row
       .col.s12.input-field
-        = f.submit 'New build', class: 'btn orange lighten-3 black-text'
+        = f.submit t('wizard.new-build'), class: 'btn orange lighten-3 black-text'
         %ul
           - @builds.each do |build|
             - if build.device.present? && build.device.vendor.present?
-              %li= link_to "#{build.device.vendor.name} #{build.device.name}", build_path(build)
+              %li= link_to "#{build.device.vendor.name} #{build.device.name} @ #{build.updated_at.to_formatted_s(:short)}", build_path(build)
             - else
-              %li= link_to "#{build.uuid}", build_path(build)
+              %li= link_to "#{build.uuid} @ #{build.updated_at}", build_path(build)

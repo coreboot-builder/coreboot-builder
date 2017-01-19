@@ -20,6 +20,36 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  wizard:
+    next: "Next"
+    back: "Back"
+    build: "Build"
+    start: "Start"
+    yes: "Yes"
+    no: "No"
+    new-build: "New build"
+    show:
+      preparing-build: "Preparing build..."
+      building-image: "Building coreboot image..."
+      waiting-for-build-server: "Waiting for Build server to take action..."
+      build-succeeded: "Build succeeded!"
+      build-succeeded-extra: "Your build was successful. Please ensure, that you decrypt the image with your private key before flashing"
+      download: "Download"
+      build-failed: "Build failed"
+      build-failed-extra: ""
+      build-unconfigured: "Build still needs to be configured"
+    disclaimer:
+      title: "DISCLAIMER"
+      rom-upload-content: |
+        The backup of your BIOS chip contains various binary components that we
+        are not allowed to redistribute. Therefore, we will extract them from
+        your backup and place them into the new image along with coreboot. The
+        new image will be encrypted for you only, to circumvent copyright issues.
+    select-bios-file: "Select BIOS File"
+    gpg-key: "Your GPG public key"
+    email-address: "Type in your email address"
+    choose-vendor: "Choose the vendor of your device"
+    choose-device: "Choose the model of your device"
   options:
     enums:
       select-payload: "Please select a payload which should be loaded after coreboot finished"

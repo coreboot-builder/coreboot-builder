@@ -1,14 +1,12 @@
 = render 'frontend/animated_slide' do
-
   = form_for :build, url: update_options_build_url(@build), method: :patch do |f|
-
     - @build.device.options.each do |option|
       .row
-        .col.s12.input-field 
+        .col.s12.input-field
           - if option.data_type == 'enum'
-            = select_tag("build[#{option.label}]", options_for_select(option.possible_values.split(",")))
+            = select_tag("build[#{option.label}]", options_for_select(option.possible_values.split(",").map { |opt| [ t(opt, scope: :options), opt ] }))
           - elsif option.data_type == 'bool'
-            = select_tag("build[#{option.label}]", options_for_select([['Yes', true], ['No', false]]))
-          = label_tag option.label
+            = select_tag("build[#{option.label}]", options_for_select([[t('wizard.yes'), true], [t('wizard.no'), false]]))
+          = label_tag t(option.label)
 
-    = f.submit 'Next' , class: 'btn orange lighten-3 black-text'
+    = f.submit t('wizard.next') , class: 'btn orange lighten-3 black-text'

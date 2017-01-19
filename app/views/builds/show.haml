@@ -1,27 +1,28 @@
 = render 'frontend/animated_slide' do
   %section.build_state{:'data-build-state' => @build.state, :'data-build-id' => @build.id}
   - if @build.pending?
-    Preparing build...
+    = t('wizard.show.preparing-build')
     .progress.orange.lighten-4
       .indeterminate.orange.darken-1
   - elsif @build.started?
-    Building coreboot image...
+    = t('wizard.show.building-image')
     .progress.orange.lighten-4
       .indeterminate.orange.darken-1
   - elsif @build.configured?
-    Waiting for Build server to take action...
+    = t('wizard.show.waiting-for-build-server')
     .progress.orange.lighten-4
       .indeterminate.orange.darken-1
   - elsif @build.succeeded?
     .card.green.lighten-1
       .card-content.black-text
-        %span.card-title Build succeeded!
-        %p Your build was successful. Please ensure, that you decrypt the image with your private key before flashing
+        %span.card-title= t('wizard.show.build-succeeded')
+        %p= t('wizard.show.build-succeeded-extra')
       .card-action
-        %a{:href => "#"} Download
+        %a{:href => "#"}= t('wizard.show.download')
 
   - elsif @build.failed?
-    Build failed
+    %p= t('wizard.show.build-failed')
+    %p= t('wizard.show.build-failed-extra')
   - else
-    %p Build still needs to be configured
+    %p= t('wizard.show.unconfigured')
     %p= "State: #{@build.state}"
