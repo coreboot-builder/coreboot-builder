@@ -1,9 +1,9 @@
 {
-    "payload": {
-      "seabios": "CONFIG_PAYLOAD_SEABIOS=y",
-      "grub2": "CONFIG_PAYLOAD_GRUB2=y"
+    "enums.select-payload": {
+      "booleans.seabios": "CONFIG_PAYLOAD_SEABIOS=y",
+      "booleans.grub2": "CONFIG_PAYLOAD_GRUB2=y"
     },
-    "tpm": [ "CONFIG_LPC_TPM=y","CONFIG_I2C_TPM=y" ],
-    "lock-me": "CONFIG_LOCK_MANAGEMENT_ENGINE=y",
-    "lock-flash": "CONFIG_LOCK_SPI_ON_RESUME_NO_ACCESS"
+    "booleans.deactivate-tpm": "CONFIG_TPM_DEACTIVATE=y",
+    "booleans.bootchart": "CONFIG_COLLECT_TIMESTAMPS=y",
+    "arrays.lock-firmware": [ "CONFIG_LOCK_MANAGEMENT_ENGINE=y", "CONFIG_LOCK_SPI_ON_RESUME_NO_ACCESS=y" ]
 }
