@@ -7,6 +7,6 @@
             = select_tag("build[#{option.label}]", options_for_select(option.possible_values.split(",").map { |opt| [ t(opt, scope: :options), opt ] }))
           - elsif option.data_type == 'bool'
             = select_tag("build[#{option.label}]", options_for_select([[t('wizard.yes'), true], [t('wizard.no'), false]]))
-          = label_tag t(option.label)
+          = label_tag t(option.label, scope: :options)
 
     = f.submit t('wizard.next') , class: 'btn orange lighten-3 black-text'
