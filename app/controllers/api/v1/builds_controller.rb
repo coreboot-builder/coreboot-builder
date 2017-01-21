@@ -6,8 +6,8 @@ class Api::V1::BuildsController < ApiController
     build = Build.find(params[:id])
 
     if params[:url].present?
-      if build.update_attribute(:state ,Build.states[:succeeded])
-        if build.update_attribute(:url ,params[:url])
+      if build.update_attribute(:state, Build.states[:succeeded])
+        if build.update_attribute(:url, params[:url])
           BuildMailer.build_done_success_mail(build).deliver
           head :ok
         else
