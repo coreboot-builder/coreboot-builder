@@ -5,9 +5,17 @@ class Api::V1::BuildsController < ApiController
   def finish
     build = Build.find(params[:id])
 
-    if build.update_attribute(:state ,Build.states[:succeeded])
-      BuildMailer.build_done_success_mail(build).deliver
-      head :ok
+    if params[:url].present?
+      if build.update_attribute(:state ,Build.states[:succeeded])
+        if build.update_attribute(:url ,params[:url])
+          BuildMailer.build_done_success_mail(build).deliver
+          head :ok
+        else
+          head :unprocessable_entity
+        end
+      else
+        head :unprocessable_entity
+      end
     else
       head :unprocessable_entity
     end

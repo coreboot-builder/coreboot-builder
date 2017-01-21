@@ -46,6 +46,9 @@ gem 'platform-api', github: 'jalada/platform-api', branch: 'master'
 
 gem 'letsencrypt-rails-heroku', group: 'production'
 
+# URL validation
+gem 'validate_url'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

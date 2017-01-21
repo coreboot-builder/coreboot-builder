@@ -4,6 +4,7 @@ class Build < ActiveRecord::Base
   validates :device, presence: true, if: :device_chosen_or_beyond?
   validates :blob_file, presence: true, if: :blob_file_uploaded_or_beyond_and_needs_rom?
   validates :gpg, presence: true, if: :configured_or_beyond?
+  validates :url, url: true
 
   belongs_to :device
   has_many :configurations
