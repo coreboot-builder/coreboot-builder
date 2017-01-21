@@ -59,10 +59,23 @@ class BuildsController < ApplicationController
   def update_options
     params.require(:build).permit(
       @build.device.options.select{ |o| o.active? }.map(&:label)
-    ).each do |conf_param|
-      option = Option.find_by(label: conf_param)
-      option.option_values.each do |option_value|
-        @build.configurations.create(option: option, value: option_value.value)
+    ).each do |option_key, option_value|
+      option = Option.find_by(label: option_key)
+      case option.data_type
+      when 'bool'
+        if option_value == 'true'
+          @build.configurations.create(option: option, value: option.option_values.first.value)
+        end
+      when 'enum'
+        unless option.option_values.map(&:enum_option).exclude?(option_value)
+          option_value = option.option_values.select do |e|
+            e.enum_option == option_value
+          end.first.value
+          @build.configurations.create(option: option, value: option_value)
+        end
+      else
+        flash.now[:error] = "Unknown option type"
+        render :choose_options
       end
     end
 
