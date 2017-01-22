@@ -42,7 +42,7 @@ gem 'sidekiq'
 
 # Until the new API calls are generally available, you must manually specify my fork
 # of the Heroku API gem:
-gem 'platform-api', github: 'jalada/platform-api', branch: 'master'
+gem 'platform-api', git: 'https://github.com/jalada/platform-api.git' , branch: 'master'
 
 gem 'letsencrypt-rails-heroku', group: 'production'
 
