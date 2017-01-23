@@ -18,7 +18,7 @@
         %span.card-title= t('wizard.show.build-succeeded')
         %p= t('wizard.show.build-succeeded-extra')
       .card-action
-        = link_to t('wizard.show.download'), @build.url, target: "_blank", rel: "nofollow"
+        = link_to t('wizard.show.download'), @build.url, type: "application/octet-stream", x_sendfile: true
 
   - elsif @build.failed?
     %p= t('wizard.show.build-failed')

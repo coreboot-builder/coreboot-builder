@@ -2,7 +2,7 @@
     "vendor": "Lenovo",
     "device": "Thinkpad X220",
     "codename": "LENOVO_X220",
-    "commit": "96326d3aefa0cfe252b44c68b540653ec47e9aa9",
+    "commit": "0f6d10ba8f8f711f2ff7fa5c8f306e18a42b8974",
     "blobs" : "yes",
     "options": {
         "enums.select-payload": ["booleans.seabios","booleans.grub2"],
