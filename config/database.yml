@@ -7,14 +7,10 @@ development:
   <<: *default
   database: Coreboot_Builder_development
 
-staging:
-  <<: *default
-  database: Coreboot_Builder_staging
-
 test:
   <<: *default
   database: Coreboot_Builder_test
 
 production:
   <<: *default
-  url: <%=  ENV['DATABASE_URL'] %>
+  database: Coreboot_Builder_production
