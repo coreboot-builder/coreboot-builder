@@ -53,7 +53,6 @@ gem 'validate_url'
 gem 'capistrano'
 gem 'capistrano-rails'
 gem 'capistrano-passenger'
-gem 'capistrano-postgresql'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

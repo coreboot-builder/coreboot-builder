@@ -77,8 +77,6 @@ GEM
     capistrano-harrow (0.5.1)
     capistrano-passenger (0.2.0)
       capistrano (~> 3.0)
-    capistrano-postgresql (4.2.1)
-      capistrano (>= 3.0)
     capistrano-rails (1.1.6)
       capistrano (~> 3.1)
       capistrano-bundler (~> 1.1)
@@ -305,7 +303,6 @@ DEPENDENCIES
   binding_of_caller
   capistrano
   capistrano-passenger
-  capistrano-postgresql
   capistrano-rails
   carrierwave (~> 1.0)
   carrierwave-ftp (~> 0.2.8)
