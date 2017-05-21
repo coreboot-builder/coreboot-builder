@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170121005833) do
+ActiveRecord::Schema.define(version: 20170512043054) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "uuid-ossp"
   enable_extension "pgcrypto"
 
-  create_table "builds", force: :cascade do |t|
+  create_table "builds", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.integer  "state",      default: 0
     t.string   "blob_file"
     t.string   "email"
@@ -33,7 +34,7 @@ ActiveRecord::Schema.define(version: 20170121005833) do
     t.index ["uuid"], name: "index_builds_on_uuid", unique: true, using: :btree
   end
 
-  create_table "configurations", force: :cascade do |t|
+  create_table "configurations", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.integer "build_id"
     t.integer "option_id"
     t.string  "value"
@@ -41,7 +42,7 @@ ActiveRecord::Schema.define(version: 20170121005833) do
     t.index ["option_id"], name: "index_configurations_on_option_id", using: :btree
   end
 
-  create_table "devices", force: :cascade do |t|
+  create_table "devices", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string  "name"
     t.boolean "needs_rom_dump"
     t.integer "vendor_id"
@@ -50,7 +51,7 @@ ActiveRecord::Schema.define(version: 20170121005833) do
     t.index ["vendor_id"], name: "index_devices_on_vendor_id", using: :btree
   end
 
-  create_table "jobs", force: :cascade do |t|
+  create_table "jobs", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "uuid",       null: false
     t.integer  "user_id"
     t.datetime "created_at", null: false
@@ -58,14 +59,14 @@ ActiveRecord::Schema.define(version: 20170121005833) do
     t.index ["user_id"], name: "index_jobs_on_user_id", using: :btree
   end
 
-  create_table "option_values", force: :cascade do |t|
+  create_table "option_values", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.integer "option_id"
     t.string  "value"
     t.string  "enum_option"
     t.index ["option_id"], name: "index_option_values_on_option_id", using: :btree
   end
 
-  create_table "options", force: :cascade do |t|
+  create_table "options", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string  "label"
     t.integer "device_id"
     t.string  "data_type"
@@ -75,14 +76,14 @@ ActiveRecord::Schema.define(version: 20170121005833) do
     t.index ["device_id"], name: "index_options_on_device_id", using: :btree
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string   "email",      null: false
     t.string   "gpg",        null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "vendors", force: :cascade do |t|
+  create_table "vendors", id: :uuid, default: -> { "uuid_generate_v4()" }, force: :cascade do |t|
     t.string "name"
   end
 
