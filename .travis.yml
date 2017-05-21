@@ -3,7 +3,7 @@ addons:
   postgresql: "9.4"
 cache: bundler
 before_install:
-  - make dev-env
+  - bundle exec rake db:setup
 before_script:
   - psql -c 'create database Coreboot_Builder_test;' -U postgres
 services:
