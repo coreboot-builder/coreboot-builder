@@ -16,6 +16,16 @@ namespace :deploy do
       end
     end
   end
+  desc "Reload board configuration."
+  task :boards do
+    on roles(:app) do
+      within release_path do
+        with rails_env: fetch(:rails_env) do
+          execute :rake, "config:read"
+        end
+      end
+    end
+  end
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
