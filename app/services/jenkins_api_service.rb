@@ -6,7 +6,7 @@ class JenkinsAPIService
       client = JenkinsApi::Client.new(
         server_url: ENV['JENKINS_SERVER_URL'],
         username: ENV['JENKINS_USERNAME'],
-        password: ENV['JEKNINS_PASSWORD'],
+        password: ENV['JENKINS_PASSWORD'],
       )
 
       job = JenkinsApi::Client::Job.new(client)
