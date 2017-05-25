@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 ruby '2.3.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '5.0.1'
+gem 'rails', '5.1.1'
 gem 'pg', '~> 0.19'
 # Use SASS for stylesheets
 gem 'sassc-rails', '~> 1.3'
@@ -31,20 +31,7 @@ gem 'carrierwave-ftp', '~> 0.2.8', require: 'carrierwave/storage/sftp'
 
 gem 'dotenv-rails'
 
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Puma as the app server
-gem 'puma', '3.4.0'
-
 gem 'sidekiq'
-
-# Until the new API calls are generally available, you must manually specify my fork
-# of the Heroku API gem:
-gem 'platform-api', git: 'https://github.com/jalada/platform-api.git' , branch: 'master'
-
-gem 'letsencrypt-rails-heroku', group: 'production'
 
 # URL validation
 gem 'validate_url'
@@ -69,7 +56,7 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
+  gem 'web-console'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'

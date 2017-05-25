@@ -8,4 +8,4 @@ Rails.application.config.assets.version = '1.0'
 
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in app/assets folder are already added.
-Rails.application.config.assets.precompile += %w( frontend.sass frontend.js kbpgp-2.0.8-min.js materialize-0.97.6.min.js materialize-0.97.6.min.css fonts.css )
+Rails.application.config.assets.precompile += %w( frontend.sass frontend.js kbpgp-2.0.8-min.js materialize-0.98.2.min.js materialize-0.98.2.min.css fonts.css )
