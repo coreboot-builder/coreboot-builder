@@ -22,7 +22,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'jenkins_api_client', '1.4.2', require: false
+gem 'jenkins_api_client', '1.5.3', require: false
 
 gem 'haml-rails', '0.9.0'
 
@@ -39,12 +39,6 @@ gem 'dotenv-rails'
 gem 'puma', '3.4.0'
 
 gem 'sidekiq'
-
-# Until the new API calls are generally available, you must manually specify my fork
-# of the Heroku API gem:
-gem 'platform-api', git: 'https://github.com/jalada/platform-api.git' , branch: 'master'
-
-gem 'letsencrypt-rails-heroku', group: 'production'
 
 # URL validation
 gem 'validate_url'

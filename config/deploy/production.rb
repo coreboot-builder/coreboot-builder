@@ -1,5 +1,5 @@
 server 'coreboot.me', user: 'coreboot-builder', roles: %w(web app db), port: 3000
-set :branch, 'master'
+set :branch, 'alpha'
 set :application, 'Coreboot_Builder'
 set :deploy_to, '/home/coreboot-builder/production/'
 set :rails_env, :production
